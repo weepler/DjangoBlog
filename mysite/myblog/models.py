@@ -25,4 +25,4 @@ class Category(models.Model):
     posts = models.ManyToManyField(Post, blank=True, related_name='categories')
 
     def __str__(self):
-        return self.title
+        return self.name
