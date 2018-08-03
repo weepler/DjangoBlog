@@ -1,9 +1,8 @@
-from django.conf.urls import url
-from myblog.views import stub_view
-from myblog.views import list_view
-from myblog.views import detail_view
+from django.urls import path
+
+from .views import detail_view, list_view
 
 urlpatterns = [
-    url(r'^$', list_view, name="blog_index"),
-    url(r'^posts/(\d+)/$', detail_view, name="blog_detail"),
+    path('', list_view, name="blog_index"),
+    path('posts/<int:post_id>/', detail_view, name="blog_detail"),
 ]
