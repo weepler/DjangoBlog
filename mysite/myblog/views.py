@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.template import loader
 from myblog.models import Post
 
+
 def list_view(request):
     published = Post.objects.exclude(published_date__exact=None)
     posts = published.order_by('-published_date')
@@ -17,4 +18,6 @@ def detail_view(request, post_id):
         raise Http404
     context = {'post': post}
     return render(request, 'detail.html', context)
+
+
 
